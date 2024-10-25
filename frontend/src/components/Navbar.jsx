@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <a href="/">
-        <img src="/assets/logo.png" alt="logo" />
+        <img src="/assets/logo.jpg" alt="logo" />
       </a>
 
       {/* <div className="navbar_search">
@@ -53,11 +53,11 @@ const Navbar = () => {
       <div className="navbar_right">
         {user ? (
           <a href="/create-listing" className="host">
-            Become A Host
+            .
           </a>
         ) : (
           <a href="/login" className="host">
-            Become A Host
+            .
           </a>
         )}
 
@@ -95,7 +95,7 @@ const Navbar = () => {
               //<Link to={`/${user._id}/wishList`}>Wish List</Link>
               //<Link to={`/${user._id}/properties`}>Property List</Link>
               //<Link to={`/${user._id}/reservations`}>Reservation List</Link> */}
-            <Link to="/create-listing">Become A Host</Link>
+            
             <Link to="/history">audit</Link>
             <Link
               to="/login"

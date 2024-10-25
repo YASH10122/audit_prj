@@ -65,6 +65,11 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+             <label for="option1">Admin</label> 
+             <input type="radio" name="role" value="admin" id="option1" />
+             <label for="option2">User</label> 
+             <input type="radio" name="role" value="user" id="option2" />
+  
           <button type="submit">LOG IN</button>
         </form>
         <a href="/register">Don have an account? Sign In Here</a>
