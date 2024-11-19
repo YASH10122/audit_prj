@@ -8,7 +8,7 @@ const cors = require("cors");
 const authRoutes = require("./routes/auth");
 
 const corsOptions = {
-  origin: ["http://localhost:5173"],
+  origin: ["http://localhost:5173",""],
   credentials: true, // This allows cookies to be sent
   allowedHeaders: ["Content-Type", "Authorization", "Accept", "withcredentials"], // Add 'withcredentials'
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
