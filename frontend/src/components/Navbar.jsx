@@ -1,7 +1,7 @@
 //import React, { useState } from 'react';
 //import './Navbar.css'; 
 //import "../styles/Navbar.css"
-import { IconButton } from "@mui/material";
+import { Icon , IconButton } from "@mui/material";
 import { Search, Person, Menu } from "@mui/icons-material";
 //import {variables} from "../styles/variables.scss";
 import { useState } from "react";
@@ -35,20 +35,20 @@ const Navbar = () => {
         <img src="/assets/logo.png" alt="logo" />
       </a>
 
-      {/* <div className="navbar_search">
+       <div className="navbar_search">
           <input
             type="text"
-            placeholder="Search ..."
+            placeholder='Search ...'
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
           <IconButton disabled={search === ""}>
             <Search
-              sx={{ color: variables.pinkred }}
+              //sx={{ color: variables.pinkred }}
               onClick={() => {navigate(`/properties/search/${search}`)}}
             />
           </IconButton>
-        </div> */}
+        </div> 
 
       <div className="navbar_right">
         {user ? (
@@ -94,8 +94,8 @@ const Navbar = () => {
             {/* //<Link to={`/${user._id}/trips`}>Trip List</Link>
               //<Link to={`/${user._id}/wishList`}>Wish List</Link>
               //<Link to={`/${user._id}/properties`}>Property List</Link>
-              //<Link to={`/${user._id}/reservations`}>Reservation List</Link> */}
-            <Link to="/create-listing">Become A Host</Link>
+              //<Link to={`/${user._id}/reservations`}>Reservation List</Link> 
+            //<Link to="/create-listing">Become A Host</Link>*/}
             <Link to="/history">audit</Link>
             <Link
               to="/login"

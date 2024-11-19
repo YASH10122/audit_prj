@@ -8,7 +8,7 @@ const cors = require("cors");
 const authRoutes = require("./routes/auth");
 
 const corsOptions = {
-  origin: ["http://localhost:5173", "http://192.168.57.236:3000"], // Removed extra space and trailing slash
+  origin: ["http://localhost:5173", "http://10.112.72.30:3000"], // Removed extra space and trailing slash
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization", "Accept", "withcredentials"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
