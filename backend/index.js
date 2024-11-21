@@ -16,7 +16,6 @@ const corsOptions = {
   origin: ["http://localhost:5173", "http://10.112.66.47:3000"], // Removed extra space and trailing slash
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization", "Accept", "withcredentials"],
->>>>>>> 75ceeaade2362922d075fbceeb92e8386080e516
 
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   preflightContinue: true,
