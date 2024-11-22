@@ -21,25 +21,34 @@ const LoginPage = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          withCredentials:true
+          withCredentials: true
         },
         body: JSON.stringify({ email, password })
       })
-      console.log(response);
-      
+      console.log(response.data);
+
       /* Get data after fetching */
       const loggedIn = await response.json()
-      localStorage.setItem('id',loggedIn.user._id)
+      localStorage.setItem('id', loggedIn.user._id)
       // console.log(loggedIn.user._id) ;
+      // console.log(use);
+
 
       if (loggedIn) {
-        dispatch (
+        dispatch(
           setLogin({
             user: loggedIn.user,
             token: loggedIn.token
           })
         )
-        navigate("/")
+        console.log(loggedIn.user);
+        if (loggedIn.user.role === "admin") {
+          navigate("/admin")
+        }
+        else {
+          navigate("/")
+        }
+
       }
 
     } catch (err) {
@@ -65,6 +74,11 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          {/* <label for="option1">Admin</label>
+          <input type="radio" name="role" value="admin" id="option1" />
+          <label for="option2">User</label>
+          <input type="radio" name="role" value="user" id="option2" /> */}
+
           <button type="submit">LOG IN</button>
         </form>
         <a href="/register">Don have an account? Sign In Here</a>

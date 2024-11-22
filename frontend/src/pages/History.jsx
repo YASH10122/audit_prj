@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import "../styles/history.scss"
+import AdminNavbar from "../components/AdminNavbar"
 const StudentHistory = () => {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,26 +38,30 @@ const StudentHistory = () => {
   }
 
   return (
-    <table className="min-w-full border-collapse border border-gray-300">
-      <thead>
-        <tr className="bg-gray-200">
-          <th className="border border-gray-300 px-4 py-2">Date & Time</th>
-          <th className="border border-gray-300 px-4 py-2">User ID</th>
-          {/* Uncomment the line below if you want to include the IP address */}
-          {/* <th className="border border-gray-300 px-4 py-2">IP Address</th> */}
-        </tr>
-      </thead>
-      <tbody>
-        {history?.map((item, index) => (
-          <tr key={index} className="hover:bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2">{item?.date}</td>
-            <td className="border border-gray-300 px-4 py-2">{item?.userId}</td>
-            {/* Uncomment the line below if you want to include the IP address */}
-            {/* <td className="border border-gray-300 px-4 py-2">{item?.ip}</td> */}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+    <AdminNavbar />
+
+    <table className="history-table">
+  <thead>
+    <tr>
+      <th>Date & Time</th>
+      <th>User ID</th>
+      {/* Uncomment the line below if you want to include the IP address */}
+      {/* <th>IP Address</th> */}
+    </tr>
+  </thead>
+  <tbody>
+    {history?.map((item, index) => (
+      <tr key={index}>
+        <td>{item?.date}</td>
+        <td>{item?.userId}</td>
+        {/* Uncomment the line below if you want to include the IP address */}
+        {/* <td>{item?.ip}</td> */}
+      </tr>
+    ))}
+  </tbody>
+</table>
+</>
   );
 };
 

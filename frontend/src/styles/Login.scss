@@ -34,6 +34,10 @@
       align-items: center;
       gap: 15px;
 
+      label {
+        color: white;
+      }
+
       input {
         width: 100%;
         padding: 7px 15px;
@@ -47,6 +51,9 @@
         input:not(:placeholder-shown):focus {
           background: transparent; /* or background: none; */
         }
+
+
+        
 
         &::placeholder {
           color: white;

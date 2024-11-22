@@ -6,6 +6,8 @@ import HomePage from "./pages/HomePage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import History from "./pages/History.jsx";
+import Admin from './pages/Admin.jsx';
+import CreateListing from './pages/CreateListing.jsx';
 
 const App = () => {
   return (
@@ -17,7 +19,8 @@ const App = () => {
             <Route path="/register" element={<RegisterPage />}></Route>
             <Route path="/login" element={<LoginPage />}></Route>
             <Route path="/history" element={<History />}></Route>
-            
+            <Route path="/admin" element={<Admin />}></Route>
+            <Route path='/create-listing' element={<CreateListing />}></Route>
           </Routes>
         </BrowserRouter>
       </div></>
