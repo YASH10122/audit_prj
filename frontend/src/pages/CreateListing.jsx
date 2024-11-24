@@ -1,5 +1,5 @@
 import "../styles/CreateListing.scss";
-import AdminNavbar from "../components/AdminNavbar"
+import Navbar from "../components/Navbar";
 import { categories, types, facilities } from "../data";
 
 import { RemoveCircleOutline, AddCircleOutline } from "@mui/icons-material";
@@ -93,9 +93,6 @@ const CreateListing = () => {
     });
   };
 
-  console.log(formDescription);
-  
-
   const creatorId = useSelector((state) => state.user._id);
 
   const navigate = useNavigate();
@@ -131,13 +128,13 @@ const CreateListing = () => {
       });
 
       /* Send a POST request to server */
-      const response = await fetch("http://localhost:3001/properties/create", {
+      const response = await fetch("http://localhost:5173/properties/create", {
         method: "POST",
         body: listingForm,
       });
 
       if (response.ok) {
-        navigate("/");
+        navigate("/admin");
       }
     } catch (err) {
       console.log("Publish Listing failed", err.message);
@@ -145,7 +142,7 @@ const CreateListing = () => {
   };
   return (
     <>
-      <AdminNavbar />
+      <Navbar />
 
       <div className="create-listing">
         <h1>Publish Your Place</h1>
@@ -186,7 +183,7 @@ const CreateListing = () => {
               ))}
             </div>
 
-            <h3>Where's your place located?</h3>
+            <h3>Where`s your place located?</h3>
             <div className="full">
               <div className="location">
                 <p>Street Address</p>
@@ -271,11 +268,11 @@ const CreateListing = () => {
                     onClick={() => {
                       setGuestCount(guestCount + 1);
                     }}
-                    sx={{
-                      fontSize: "25px",
-                      cursor: "pointer",
-                      // "&:hover": { color: variables.pinkred },
-                    }}
+                    // sx={{
+                    //   fontSize: "25px",
+                    //   cursor: "pointer",
+                    //   "&:hover": { color: variables.pinkred },
+                    // }}
                   />
                 </div>
               </div>
@@ -502,7 +499,7 @@ const CreateListing = () => {
                 required
               />
               <p>Now, set your PRICE</p>
-              <span>₹</span>
+              <span>$</span>
               <input
                 type="number"
                 placeholder="100"
@@ -521,7 +518,7 @@ const CreateListing = () => {
         </form>
       </div>
 
-     {/* <Footer /> */}
+      {/* /<Footer /> */}
     </>
   );
 };

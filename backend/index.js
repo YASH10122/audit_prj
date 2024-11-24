@@ -6,11 +6,12 @@ const doeenv = require("dotenv").config();
 const cors = require("cors");
 
 const authRoutes = require("./routes/auth");
+const listingRoutes = require("./routes/Listing")
 
 const corsOptions = {
 
   origin: ["http://localhost:5173", "http://10.112.72.30:3000"], // Removed extra space and trailing slash
-
+ // origin: ["http://localhost:5173"],
   
 
   credentials: true,
@@ -23,9 +24,10 @@ const corsOptions = {
 app.options("*", cors(corsOptions)); // This handles preflight requests
 app.use(cors(corsOptions)); 
 app.use(express.json());
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 app.use("/auth", authRoutes);
+app.use("/properties", listingRoutes);
 
 mongoose
   .connect(process.env.MONGO_URL,{
