@@ -26,10 +26,10 @@ const ListingSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-      province: {
-        type: String,
-        required: true,
-      },
+      // province: {
+      //   type: String,
+      //   required: true,
+      // },
       country: {
         type: String,
         required: true,
@@ -63,14 +63,14 @@ const ListingSchema = new mongoose.Schema({
         type: String,
         required: true
       },
-      highlight: {
-        type: String,
-        required: true
-      },
-      highlightDesc: {
-        type: String,
-        required: true
-      },
+      // highlight: {
+      //   type: String,
+      //   required: true
+      // },
+      // highlightDesc: {
+      //   type: String,
+      //   required: true
+      // },
       price: {
         type: Number,
         required: true,

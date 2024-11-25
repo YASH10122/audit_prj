@@ -1,5 +1,5 @@
 import "../styles/CreateListing.scss";
-import Navbar from "../components/Navbar";
+import AdminNavbar from "../components/AdminNavbar";
 import { categories, types, facilities } from "../data";
 
 import { RemoveCircleOutline, AddCircleOutline } from "@mui/icons-material";
@@ -21,7 +21,6 @@ const CreateListing = () => {
     streetAddress: "",
     aptSuite: "",
     city: "",
-    province: "",
     country: "",
   });
 
@@ -80,8 +79,6 @@ const CreateListing = () => {
   const [formDescription, setFormDescription] = useState({
     title: "",
     description: "",
-    highlight: "",
-    highlightDesc: "",
     price: 0,
   });
 
@@ -109,7 +106,7 @@ const CreateListing = () => {
       listingForm.append("streetAddress", formLocation.streetAddress);
       listingForm.append("aptSuite", formLocation.aptSuite);
       listingForm.append("city", formLocation.city);
-      listingForm.append("province", formLocation.province);
+      
       listingForm.append("country", formLocation.country);
       listingForm.append("guestCount", guestCount);
       listingForm.append("bedroomCount", bedroomCount);
@@ -117,9 +114,7 @@ const CreateListing = () => {
       listingForm.append("bathroomCount", bathroomCount);
       listingForm.append("amenities", amenities);
       listingForm.append("title", formDescription.title);
-      listingForm.append("description", formDescription.description);
-      listingForm.append("highlight", formDescription.highlight);
-      listingForm.append("highlightDesc", formDescription.highlightDesc);
+      listingForm.append("description", formDescription.description);  
       listingForm.append("price", formDescription.price);
 
       /* Append each selected photos to the FormData object */
@@ -128,7 +123,7 @@ const CreateListing = () => {
       });
 
       /* Send a POST request to server */
-      const response = await fetch("http://localhost:5173/properties/create", {
+      const response = await fetch("http://localhost:4546/properties/create", {
         method: "POST",
         body: listingForm,
       });
@@ -142,7 +137,7 @@ const CreateListing = () => {
   };
   return (
     <>
-      <Navbar />
+      <AdminNavbar />
 
       <div className="create-listing">
         <h1>Publish Your Place</h1>
@@ -200,10 +195,10 @@ const CreateListing = () => {
 
             <div className="half">
               <div className="location">
-                <p>Apartment, Suite, etc. (if applicable)</p>
+                <p>Apartment, Suite </p>
                 <input
                   type="text"
-                  placeholder="Apt, Suite, etc. (if applicable)"
+                  placeholder="Apt, Suite"
                   name="aptSuite"
                   value={formLocation.aptSuite}
                   onChange={handleChangeLocation}
@@ -225,18 +220,7 @@ const CreateListing = () => {
 
             <div className="half">
               <div className="location">
-                <p>Province</p>
-                <input
-                  type="text"
-                  placeholder="Province"
-                  name="province"
-                  value={formLocation.province}
-                  onChange={handleChangeLocation}
-                  required
-                />
-              </div>
-              <div className="location">
-                <p>Country</p>
+              <p>Country</p>
                 <input
                   type="text"
                   placeholder="Country"
@@ -245,6 +229,17 @@ const CreateListing = () => {
                   onChange={handleChangeLocation}
                   required
                 />
+              </div>
+              <div className="location">
+                {/* <p>Country</p> */}
+                {/* <input
+                  type="text"
+                  placeholder="Country"
+                  name="country"
+                  value={formLocation.country}
+                  onChange={handleChangeLocation}
+                  required
+                /> */}
               </div>
             </div>
 
@@ -480,26 +475,10 @@ const CreateListing = () => {
                 onChange={handleChangeDescription}
                 required
               />
-              <p>Highlight</p>
-              <input
-                type="text"
-                placeholder="Highlight"
-                name="highlight"
-                value={formDescription.highlight}
-                onChange={handleChangeDescription}
-                required
-              />
-              <p>Highlight details</p>
-              <textarea
-                type="text"
-                placeholder="Highlight details"
-                name="highlightDesc"
-                value={formDescription.highlightDesc}
-                onChange={handleChangeDescription}
-                required
-              />
+              
+              
               <p>Now, set your PRICE</p>
-              <span>$</span>
+              <span>₹</span>
               <input
                 type="number"
                 placeholder="100"
